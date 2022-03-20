@@ -90,7 +90,7 @@ class HomeScreen extends StatelessWidget {
               },
               child: const Text('Navigate to screen that extracts arguments'),
             ),
-            
+            SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(
