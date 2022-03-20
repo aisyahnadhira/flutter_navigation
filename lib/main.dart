@@ -15,62 +15,49 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Screen1(title: 'Flutter Demo Home Page'),
+      home: const FirstRoute(),
     );
   }
 }
 
-class Screen1 extends StatefulWidget {
-  const Screen1({Key? key, required this.title}) : super(key: key);
-
-
-  final String title;
-
-  @override
-  State<Screen1> createState() => _Screen1();
-}
-
-class _Screen1 extends State<Screen1> {
+class FirstRoute extends StatelessWidget {
+  const FirstRoute({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Main Screen'),
+        title: const Text('First Route'),
       ),
-      body: GestureDetector(
-        onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return const DetailScreen();
-          }));
-        },
-        child: Hero(
-          tag: 'imageHero',
-            child: Image.network(
-              'https://picsum.photos/250?image=9',
-            ),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text('Open route'),
+          onPressed: () {
+            Navigator.push(
+              context,
+                MaterialPageRoute(builder: (context) => const SecondRoute()),
+              );
+          },
         ),
       ),
     );
   }
 }
 
-class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
+class SecondRoute extends StatelessWidget {
+  const SecondRoute({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GestureDetector(
-        onTap: () {
-          Navigator.pop(context);
-        },
-        child: Center(
-          child: Hero(
-            tag: 'imageHero',
-            child: Image.network(
-              'https://picsum.photos/250?image=9',
-            ),
-          ),
+      appBar: AppBar(
+        title: const Text('Second Route'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Go back!'),
         ),
       ),
     );
