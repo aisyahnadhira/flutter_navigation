@@ -12,30 +12,29 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Navigation',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const FirstRoute(),
+      initialRoute: '/',
+        routes: {
+          '/': (context) => const FirstScreen(),
+          '/second': (context) => const SecondScreen(),
+        },
     );
   }
 }
 
-class FirstRoute extends StatelessWidget {
-  const FirstRoute({Key? key}) : super(key: key);
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('First Route'),
+        title: const Text('First Screen'),
       ),
       body: Center(
         child: ElevatedButton(
-          child: const Text('Open route'),
+          child: const Text('Launch Screen'),
           onPressed: () {
-            Navigator.push(
-              context,
-                MaterialPageRoute(builder: (context) => const SecondRoute()),
-              );
+            Navigator.pushNamed(
+              context,'/second');
           },
         ),
       ),
@@ -43,14 +42,14 @@ class FirstRoute extends StatelessWidget {
   }
 }
 
-class SecondRoute extends StatelessWidget {
-  const SecondRoute({Key? key}) : super(key: key);
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Second Route'),
+        title: const Text('Second Screen'),
       ),
       body: Center(
         child: ElevatedButton(
