@@ -15,22 +15,22 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const Screen1(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class Screen1 extends StatefulWidget {
+  const Screen1({Key? key, required this.title}) : super(key: key);
 
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Screen1> createState() => _Screen1();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _Screen1 extends State<Screen1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
